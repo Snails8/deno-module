@@ -1,0 +1,32 @@
+version: '3'
+services:
+  app:
+    container_name: deno-app
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      PORT: '8000'
+      HOST: '0.0.0.0'
+    ports:
+      - 8000:8000
+    stdin_open: true
+    restart: always
+    command: 
+      bash -c "deno run --allow-net src/main.ts"
+  
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5433:5432
+    volumes:
+      - "db:/var/lib/postgresql/data"
+    command: >
+      -c log_statement=all
+
+volumes:
+  db: {}
