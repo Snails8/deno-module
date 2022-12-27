@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Deno File Debug",
+      "type": "pwa-node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": ["run", "--inspect-brk", "-A", "${file}"],
+      "attachSimplePort": 9229
+    },
+    {
+      "name": "Deno Server Debug",
+      "type": "pwa-node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": ["run", "--inspect-brk", "-A", "src/end-point/debug.ts"],
+      "attachSimplePort": 9229
+    },
+    {
+      "name": "Deno CLI Debug",
+      "type": "pwa-node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-brk",
+        "-A",
+        "--allow-read",
+        "--allow-write",
+        "--allow-env",
+        "--allow-net",
+        "src/end-point/cli.ts",
+        "usecase",
+        "initialization",
+        "test"
+      ],
+      "attachSimplePort": 9229
+    }
+  ]
+}
