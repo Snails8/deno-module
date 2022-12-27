@@ -1,0 +1,37 @@
+version: '3'
+services:
+  backend-app:
+    container_name: backend-app-deno
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      PORT: '8100'
+      HOST: '0.0.0.0'
+    ports:
+      - 8100:8100
+    stdin_open: true
+    restart: always
+    # command: ["deno", "run", "--allow-net", "src/end-point/dummy.ts"]
+    command: ["deno", "run", "--allow-net", "--allow-read", "src/end-point/server.ts"]
+    depends_on:
+      - backend-db
+  
+  backend-db:
+    container_name: backend-db-postgres
+    image: postgres
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+      - POSTGRES_INITDB_ARGS
+    ports:
+      - 5444:5443
+    volumes:
+      - ./src/share-space:/share-space
+      - db:/var/lib/postgresql/data
+    command: >
+      -c log_statement=all
+
+volumes:
+  db: {}
