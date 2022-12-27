@@ -1,0 +1,25 @@
+description: users
+type: object
+properties:
+  id:
+    type: number
+    example: 1
+    maxLength: 100
+  name:
+    type: string
+    example: 'テスト太郎'
+    maxLength: 100
+  email:
+    type: string
+    example: 'test@sample.com'
+  role:
+    $ref:  ./UserRole.yaml
+  companyName:
+    type: string
+    example: 株式会社テスト
+required:
+  - id
+  - name
+  - email 
+  - role
+  - companyName

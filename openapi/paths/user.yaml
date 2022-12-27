@@ -1,0 +1,25 @@
+get:
+  tags:
+    - user
+  summary: Find user by id
+  description:  Return a single user
+  operationId: getUsersByID
+  parameters:
+    - name: id
+      in: path
+      description: user id
+      required: true
+      schema:
+        type: integer
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/User.yaml
+          example:
+            id: 1
+            name: テスト太郎
+            email: test@jdsc.ai
+            userRole: manager

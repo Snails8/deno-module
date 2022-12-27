@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI
+  description: OpenAPI 
+  version: 0.0.0
+servers:
+  - url: https://example.com/api/v1
+    description: プロダクション API
+  - url: http://{host}:{port}/api/v1
+    description: 開発用
+    variables:
+      host:
+        default: localhost
+      port:
+        default: '3000'
+paths:
+  /users:
+    $ref: ./paths/users.yaml
+  /user/{id}:
+    $ref: ./paths/user.yaml

@@ -1,0 +1,25 @@
+get:
+  tags:
+    - users
+  summary: find users
+  description: return users
+  operationId: getUsers
+  responses:
+    '200':
+      description: ユーザー一覧を取得するAPIは正常に動作しています
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/GetUsersResponse.yaml
+post:
+  tags:
+    - users
+  summary: ユーザーの新規作成
+  operationId: postUser
+  responses:
+    '204':
+      description: ユーザーを作成するAPIは正常に動作しています
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/PostUserResponse.yaml

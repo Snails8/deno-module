@@ -1,0 +1,18 @@
+type: object
+required:
+  - name
+  - email
+  - password
+  - role
+properties:
+  name:
+    description: ユーザー名
+    type: string
+  email:
+    type: string
+  password:
+    description: パスワード
+    type: string
+  role:
+    description: ロール
+    $ref: './UserRole.yaml'
