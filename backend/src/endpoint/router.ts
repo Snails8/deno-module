@@ -7,3 +7,5 @@ const APIVer = '/api/v1';
 router.get(`/`, (ctx: Context) => {
   ctx.response.body = {sample: "test"};
 })
+
+export { router }
