@@ -14,6 +14,7 @@ services:
     restart: always
     # command: ["deno", "run", "--allow-net", "src/end-point/dummy.ts"]
     command: ["deno", "run", "--allow-net", "--allow-read", "src/endpoint/server.ts"]
+    # command: ["denon", "start"] 
     depends_on:
       - backend-db
   

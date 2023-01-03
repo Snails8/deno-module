@@ -1,0 +1,6 @@
+scripts:
+  start:
+    cmd: "deno run src/endpoint/server.ts"
+    desc: "run my server.ts file"
+    allow: ["env", "net", "read", "write", "plugin"]
+    unstable: true

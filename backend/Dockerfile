@@ -1,6 +1,9 @@
 # https://hub.docker.com/r/denoland/deno
 FROM denoland/deno:alpine-1.28.1
 
+# RUN deno install --allow-read --allow-run --allow-write --allow-net -qAf --unstable https://deno.land/x/denon/denon.ts
+RUN deno install -qAf --unstable https://deno.land/x/denon/denon.ts
+
 # The port that your application listens to.
 EXPOSE 8000
 
