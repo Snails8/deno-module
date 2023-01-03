@@ -3,7 +3,7 @@ import { Initializer, Usecase } from "./_usecase.ts";
 
 
 export class UserUsecase implements Usecase {
-  private getUsers() {
+  private getUsers(): Result<unknown> {
     const operator = "operator";
     const users = [
       {
@@ -22,19 +22,53 @@ export class UserUsecase implements Usecase {
       },
     ];
 
-    return users;
-  }
-
-  async run(usecaseKey?: string | undefined): Promise<Result<unknown>> {
-    const users = this.getUsers();
-
     const result: Result<any[]> = {
       status: true,
       code: 200,
       message: "aaaaaa",
       entity: users,
     };
-    return await result;
+  
+    return result;
+  }
+
+  private getUserById() {
+    const operator = "operator";
+    const user = {
+        companyName: "株式会社テスト",
+        id: "111",
+        name: "テスト太郎",
+        email: "test@sample.com",
+        role: operator,
+      }
+
+    const result: Result<any> = {
+      status: true,
+      code: 200,
+      message: "aaaaaa",
+      entity: user,
+    };
+  
+    return result;
+  }
+
+  async run(usecaseKey?: string | undefined): Promise<Result<unknown>> {
+    const result: Result<any> = {
+      status: true,
+      code: 200,
+      message: "aaaaaa",
+    };
+
+    console.log('usecase');
+    
+    switch(usecaseKey) {
+      case 'getUsers':
+        return await this.getUsers();
+      case 'getUserById':
+        return this.getUserById();
+      default:
+        return  result;
+    }
   }
 }
 

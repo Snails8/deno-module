@@ -37,9 +37,9 @@ export class WebEndpoint {
   private parse(key: string): ucIF.UsecaseParameter | null {
     switch (key) {
       case 'getUsers':
-        return {moduleKey: "user", usecaseKey: "get"}
+        return {moduleKey: "user", usecaseKey: "getUsers"}
       case 'getUserById':
-        return {moduleKey: "user", usecaseKey: "get"}
+        return {moduleKey: "user", usecaseKey: "getUsersById"}
       case 'postUser':
         return {moduleKey: "user", usecaseKey: "post"}
       default:
