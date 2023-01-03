@@ -38,8 +38,10 @@ export class WebEndpoint {
     switch (key) {
       case 'getUsers':
         return {moduleKey: "user", usecaseKey: "get"}
-      case 'createUser':
+      case 'getUserById':
         return {moduleKey: "user", usecaseKey: "get"}
+      case 'postUser':
+        return {moduleKey: "user", usecaseKey: "post"}
       default:
         return null
     }

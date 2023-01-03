@@ -8,6 +8,7 @@ export async function handler(ctx: Context, key: string): Promise<Result<unknown
   const controller = new WebEndpoint(key);
   return await controller.delegate(ctx);
 }
+
 const PORT = 8100;
 const app = new Application();
 
