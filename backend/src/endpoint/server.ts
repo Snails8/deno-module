@@ -8,12 +8,12 @@ export async function handler(ctx: Context, key: string): Promise<Result<unknown
   const controller = new WebEndpoint(key);
   return await controller.delegate(ctx);
 }
-
+const PORT = 8100;
 const app = new Application();
 
 app.use(oakCors()); // Enable CORS for All Routes
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-console.log('start deno server!  http://localhost:8000/');
-await app.listen({ port: 8100 });
+console.log(`start deno server!  http://localhost:${PORT}/`);
+await app.listen({ port: PORT });
