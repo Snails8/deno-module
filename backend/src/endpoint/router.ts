@@ -4,7 +4,8 @@ import { handler } from "./server.ts";
 const router = new Router();
 const APIVer = '/api/v1';
 
-router.get(`/`, (ctx: Context) => {
+router.get(`${APIVer}/`, (ctx: Context) => {
+  console.log('entry---------------------');
   ctx.response.body = {sample: "test"};
 })
 
