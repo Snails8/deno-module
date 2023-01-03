@@ -1,4 +1,4 @@
-import { Router, Context } from "../../deps.ts";
+import { Router, Context, helpers } from "../../deps.ts";
 import { Result } from "../common.ts";
 import { handler } from "./server.ts";
 
@@ -25,13 +25,19 @@ router.get(`${APIVer}/users`, async (ctx: Context) => {
   setResponseData(ctx, result);
 });
 
-router.put(`${APIVer}/users/:userId`, async (ctx: Context) => {
+router.get(`${APIVer}/users/:userId`, async (ctx: Context) => {
+  console.log(`------- getUserById: ${helpers.getQuery(ctx, { mergeParams: true })}------------------------`)
   const result = await handler(ctx, 'getUserById');
   setResponseData(ctx, result);
 });
 
 router.get(`${APIVer}/users/create`, async (ctx: Context) => {
   const result = await handler(ctx, 'postUser');
+  setResponseData(ctx, result);
+});
+
+router.put(`${APIVer}/users/:userId`, async (ctx: Context) => {
+  const result = await handler(ctx, 'getUserById');
   setResponseData(ctx, result);
 });
 

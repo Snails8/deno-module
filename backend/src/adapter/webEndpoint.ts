@@ -39,7 +39,7 @@ export class WebEndpoint {
       case 'getUsers':
         return {moduleKey: "user", usecaseKey: "getUsers"}
       case 'getUserById':
-        return {moduleKey: "user", usecaseKey: "getUsersById"}
+        return {moduleKey: "user", usecaseKey: "getUserById"}
       case 'postUser':
         return {moduleKey: "user", usecaseKey: "post"}
       default:
