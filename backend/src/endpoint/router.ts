@@ -17,13 +17,24 @@ const setResponseData = (ctx: Context, result: Result) => {
 
 router.get(`${APIVer}/`, (ctx: Context) => {
   console.log('----test-get------------------');
-  
   const result: Result<string> = {
     status: true,
     entity: 'sample'
   } 
   setResponseData(ctx, result);
 })
+
+router.post(`${APIVer}/create`, async (ctx: Context) => {
+  console.log('----test-post------------------');
+  const data = ctx.request.body();
+  console.log(await data.value); //  {"name":"aa","email":"aaa","password":"aaa","role":"operator"}
+});
+
+router.put(`${APIVer}/:id`, async (ctx: Context) => {
+  console.log(`---- test put ${helpers.getQuery(ctx, { mergeParams: true })}------------------`);
+  const data = ctx.request.body();
+  console.log(await data.value, `id is ${helpers.getQuery(ctx, { mergeParams: true })}`); //  {"name":"aa","email":"aaa","password":"aaa","role":"operator"}
+});
 
 router.get(`${APIVer}/users`, async (ctx: Context) => {
   const result = await handler(ctx, 'getUsers');
