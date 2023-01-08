@@ -36,8 +36,15 @@ router.get(`${APIVer}/users/:userId`, async (ctx: Context) => {
   setResponseData(ctx, result);
 });
 
-router.get(`${APIVer}/users/create`, async (ctx: Context) => {
+router.post(`${APIVer}/users/create`, async (ctx: Context) => {
+  console.log('---------- create user --------------------------------------')
+  const data = ctx.request.body();
+  // const sample  = await data.value
+  console.log(await data.value); //  {"name":"aa","email":"aaa","password":"aaa","role":"operator"}
+  
   const result = await handler(ctx, 'postUser');
+
+
   setResponseData(ctx, result);
 });
 
