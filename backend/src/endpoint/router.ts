@@ -17,7 +17,12 @@ const setResponseData = (ctx: Context, result: Result) => {
 
 router.get(`${APIVer}/`, (ctx: Context) => {
   console.log('----test-get------------------');
-  ctx.response.body = {sample: "test"};
+  
+  const result: Result<string> = {
+    status: true,
+    entity: 'sample'
+  } 
+  setResponseData(ctx, result);
 })
 
 router.get(`${APIVer}/users`, async (ctx: Context) => {
