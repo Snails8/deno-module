@@ -1,0 +1,21 @@
+### usage : cmd + alt + r
+
+### echo Hello World!
+GET http://localhost:8000
+
+### Get All Books
+GET http://localhost:8000/api/v1/books
+
+### Get Books by ID
+GET http://localhost:8000/api/v1/books/1
+
+### Create Book
+POST http://localhost:8000/api/v1/books
+Content-Type: application/json
+
+### Update Book By Id
+PUT http://localhost:8000/api/v1/books/1
+Content-Type: application/json
+
+### Delete Book By ID
+DELETE http://localhost:8000/api/v1/books/1
