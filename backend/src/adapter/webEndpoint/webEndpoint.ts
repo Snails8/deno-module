@@ -1,6 +1,6 @@
-import { HTTPStatusEnum, Result } from "../common.ts";
-import { Context } from "../../deps.ts";
-import * as ucIF from "../domain/usecase/_usecase.ts";
+import { HTTPStatusEnum, Result } from "../../common.ts";
+import { Context } from "../../../deps.ts";
+import * as ucIF from "../../domain/usecase/_usecase.ts";
 
 /**
  * 抽象的な形で実装。目的はendpointの集約を作ること

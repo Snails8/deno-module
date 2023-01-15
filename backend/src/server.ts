@@ -1,8 +1,8 @@
-import { WebEndpoint } from "../adapter/webEndpoint.ts";
-import { Application, Context } from "../../deps.ts";
-import { oakCors } from "../../deps.ts";
-import { router } from "./router.ts";
-import { Result } from "../common.ts";
+import { WebEndpoint } from "./adapter/webEndpoint/webEndpoint.ts";
+import { Application, Context } from "../deps.ts";
+import { oakCors } from "../deps.ts";
+import { router } from "./adapter/webEndpoint/router.ts";
+import { Result } from "./common.ts";
 
 export async function handler(ctx: Context, key: string): Promise<Result<unknown>> {
   const controller = new WebEndpoint(key);
