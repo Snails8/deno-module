@@ -41,6 +41,14 @@ migrate:
 
 rollback:
 	deno run -A --unstable --allow-env https://deno.land/x/nessie/cli.ts rollback
+
+create-seed:
+	deno run -A --unstable https://deno.land/x/nessie/cli.ts make:seed ${ARG}
+
+seed:
+	deno run -A --unstable --allow-env https://deno.land/x/nessie/cli.ts seed
+
+
 # =======================================================
 # setup cmd
 # =======================================================
