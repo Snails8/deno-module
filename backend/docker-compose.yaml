@@ -27,7 +27,7 @@ services:
       - POSTGRES_DB
       - POSTGRES_INITDB_ARGS
     ports:
-      - 5444:5443
+      - 5433:5432
     volumes:
       - ./src/share-space:/share-space
       - db:/var/lib/postgresql/data
