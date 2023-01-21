@@ -29,6 +29,18 @@ destroy:
 exec-container:
 	docker-compose -p ${COMPOSE_PROJECT_NAME} exec ${SERVICE_NAME_APP} sh
 
+
+# ======================================================
+# deno cmd
+# ======================================================
+create-migration:
+	deno run -A --unstable https://deno.land/x/nessie/cli.ts make:migration ${ARG}
+
+migrate:
+	deno run -A --unstable --allow-env https://deno.land/x/nessie/cli.ts migrate
+
+rollback:
+	deno run -A --unstable --allow-env https://deno.land/x/nessie/cli.ts rollback
 # =======================================================
 # setup cmd
 # =======================================================
