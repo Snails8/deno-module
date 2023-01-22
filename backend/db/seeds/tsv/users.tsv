@@ -1,0 +1,3 @@
+id  name  email uid age created_at  updated_at
+1	管理太郎	manager@test.com	AAAAAAAAAA	21	2023-01-02 01:11:11.111111+00	2023-01-02 01:11:11.111111+00
+2	テスト太郎	test@test.com	AAAAAAAAAB	22	2023-01-02 01:11:11.111111+00	2023-01-02 01:11:11.111111+00
